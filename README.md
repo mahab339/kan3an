@@ -14,12 +14,15 @@ roya.sh is simply running these commands in sequence, instead of typing them eve
 
 ###Requrements
 1. gradlw program
+
 Typically found on the Android Studio **project** directory. You may need to run it one time at first to set things up.
 
 2. adb program
+
 if it is found in the SDK folder, add it to the PATH variable. Otherwise install it to your system.
 
 3. A physical device connected to the computer and set up for debugging.
+
 Only one device (if you are super rich and have more than one phone, connect only one at a time)
 
 ###TODO
