@@ -13,13 +13,13 @@ where `com.azhalha.androidapp/com.azhalha.androidapp.Signup` is the launcher act
 roya.sh is simply running these commands in sequence, instead of typing them every time.
 
 ###Requrements
-1. gradlw program 
+1. gradlw program\n
 Typically found on the Android Studio **project** directory. You may need to run it one time at first to set things up.
 
-2. adb program 
+2. adb program\n
 if it is found in the SDK folder, add it to the PATH variable. Otherwise install it to your system.
 
-3. A physical device connected to the computer and set up for debugging. 
+3. A physical device connected to the computer and set up for debugging.\n
 Only one device (if you are super rich and have more than one phone, connect only one at a time)
 
 ###TODO
