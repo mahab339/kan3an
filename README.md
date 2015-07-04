@@ -24,7 +24,7 @@ Only one device (if you are super rich and have more than one phone, connect onl
 
 ###TODO
 For the sake of learning the very powerful tool: shell scripting. I intend to add the following features to the script:
-* Support emulator, add option that launch the emulator instead of the physical device.
+* Support emulator, add option that launch the emulator instead of a physical device.
 * An option for the user to specify the launcher activity.
 * Set the default launcher activity from the terminal.
 * Adding "launch without rebuilding" option.
