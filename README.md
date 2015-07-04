@@ -9,7 +9,7 @@ One thing I hated about Android Studio is that it doesn't provide any feedback w
 
 3- `adb shell am start -n com.azhalha.androidapp/com.azhalha.androidapp.Signup`
 
-where `com.azhalha.androidapp/com.azhalha.androidapp.Signup` is the launcher activity.
+where `com.azhalha.androidapp/com.azhalha.androidapp.Signup` is the launcher activity.<br>
 roya.sh is simply running these commands in sequence, instead of typing them every time.
 
 ###Requrements
