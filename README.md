@@ -1,7 +1,7 @@
 # roya
 A simple bash script to be used while developing Android apps to launch the application from the AndroidStudio project to a testing device.
-###why
-One thing I hated about Android Studio is that it doesn't provide any feedback while the Gradle is building and running project, whether about errors or the percentage of completion. To overcome this issue, I found using command line is very helpful. There are three commands to build, install, and launch a project typically:
+###Why
+One thing I hated about Android Studio is that it doesn't provide any feedback while the Gradle is building and running project, whether about errors or the percentage of completion. To overcome this issue, I found using command line is very helpful. There are three commands to build, install, and launch a project namely:
 
 1- `./gradlew assembleDebug`
 
