@@ -14,8 +14,8 @@ if it is found in the SDK folder, add it to the PATH variable. Otherwise install
 For the sake of learning the powerful tool; shell scripting. I intend to add the following features to the script:
 * Support emulator, add option that launch the emulator instead of a physical device.
 * An option for the user to specify the launcher activity.
-* ~~Set the default launcher activity from the terminal.~~ <small>finished on: Wed Jul  8 01:45:45 AST 2015</small>
-* Set the package name from terminal globally (one time). <small>added on Wed Jul  8 01:46:50 AST 2015</small>
+* ~~Set the default launcher activity from the terminal.~~ <small> finished on: Wed Jul  8 01:45:45 AST 2015 </small>
+* Set the package name from terminal globally (one time). <small> added on Wed Jul  8 01:46:50 AST 2015 </small>
 * Adding "launch without rebuilding" option.
 * Support options `--stacktrace` and `--info` to be used with gradlew.
 
