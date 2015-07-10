@@ -1,5 +1,7 @@
 #!/usr/bin/bash
 
+PACKAGE_NAME="com.azhalha.androidapp"
+
 make_activity_runnable()
 {
 	echo "Adding android:exported="true" to activity $1 in AndroidManifest.xml"
@@ -9,7 +11,7 @@ make_activity_runnable()
 	# assuming the first line after <activity is android:name="", L contains all attributes of <activity >
 	if [[ "$L" != *"android:exported=\"true\""* ]]; then
 		#add exported="true" after android:name=""
-			sed -i.copy 's/android:name="com.azhalha.androidapp.'$1'"/android:name="com.azhalha.androidapp.'$1'"\n\tandroid:exported="true"/' ./app/src/main/AndroidManifest.xml
+			sed -i.copy 's/android:name="'$PACKAGE_NAME'.'$1'"/android:name="'$PACKAGE_NAME'.'$1'"\n\tandroid:exported="true"/' ./app/src/main/AndroidManifest.xml
 		  echo "done modifying"
 	fi
 }
@@ -25,7 +27,7 @@ if [ -f ./gradlew ]; then
 	./gradlew assembleDebug
 	invert_manifest_modification
 	adb install -r ./app/build/outputs/apk/app-debug.apk
-	adb shell am start -n com.azhalha.androidapp/com.azhalha.androidapp.$1
+	adb shell am start -n $PACKAGE_NAME/$PACKAGE_NAME.$1
 else
 	echo "Cannot find gradlew program"
 fi
