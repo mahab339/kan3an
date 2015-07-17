@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-PACKAGE_NAME="com.azhalha.androidapp"
+PACKAGE=com.azhalha.androidapp
 
 make_activity_runnable()
 {
@@ -9,10 +9,10 @@ make_activity_runnable()
 	MANIFEST_PATH=./app/src/main/AndroidManifest.xml
 	# lines from <activity > starting from android:name until >
 	# assuming the first line after <activity is android:name="", ACTIVITY_ATTRS contains all attributes of <activity >
-	ACTIVITY_ATTRS=$(sed -n '/android:name="'$PACKAGE_NAME'.'$1'"/,/>/p' ./app/src/main/AndroidManifest.xml)
+	ACTIVITY_ATTRS=$(sed -n '/android:name="'$PACKAGE'.'$1'"/,/>/p' ./app/src/main/AndroidManifest.xml)
 	if [[ "$ACTIVITY_ATTRS" != *"android:exported=\"true\""* ]]; then
 		#add exported="true" after android:name=""
-		sed -i.copy 's/android:name="'$PACKAGE_NAME'.'$1'"/android:name="'$PACKAGE_NAME'.'$1'"\n\tandroid:exported="true"/' ./app/src/main/AndroidManifest.xml
+		sed -i.copy 's/android:name="'$PACKAGE'.'$1'"/android:name="'$PACKAGE'.'$1'"\n\tandroid:exported="true"/' ./app/src/main/AndroidManifest.xml
 		echo "Done modifying..."
 	else
 		echo "Nothing to modify..."
@@ -30,12 +30,45 @@ invert_manifest_modification()
 	fi
 }
 
-if [ -f ./gradlew ]; then
-	make_activity_runnable $1
-	./gradlew assembleDebug
-	invert_manifest_modification
-	adb install -r ./app/build/outputs/apk/app-debug.apk
-	adb shell am start -n $PACKAGE_NAME/$PACKAGE_NAME.$1
-else
+# change the variable value in the script, alter the script using sed, and exit
+# right now, variables that can be changed are PACKAGE
+set_var()
+{
+	VAR=${1/=*/}
+	VAL=${1/*=/}
+	sed -i 's/'$VAR'=.*/'$1'/' roya.sh
+	echo $VAR "has been set to" $VAL " sccessfully..."
+	exit
+}
+
+
+
+#seting options
+#options till now are:
+# -s|--set to set variable to values
+	while [[ $# > 0 && $1 == -* ]]
+	do
+	key="$1"
+
+	case $key in
+	    -s|--set) #set a variable to a value
+	    set_var $2
+	    shift # past argument
+	    ;;
+
+	    *)
+	            # unknown option
+	    ;;
+	esac
+	shift # past argument or value
+	done
+
+if [ ! -f ./gradlew ]; then
 	echo "Cannot find gradlew program"
+	exit
 fi
+make_activity_runnable $1
+./gradlew assembleDebug
+invert_manifest_modification
+adb install -r ./app/build/outputs/apk/app-debug.apk
+adb shell am start -n $PACKAGE/$PACKAGE.$1
