@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-PACKAGE=com.azhalha.androidapp
+PACKAGE="unset"
 
 make_activity_runnable()
 {
@@ -36,8 +36,8 @@ set_var()
 {
 	VAR=${1/=*/}
 	VAL=${1/*=/}
-	sed -i 's/'$VAR'=.*/'$1'/' roya.sh
-	echo $VAR "has been set to" $VAL " sccessfully..."
+	sed -i 's/'^$VAR'=.*/'$1'/' royatst.sh
+	echo $VAR "has been set to" $VAL "sccessfully..."
 	exit
 }
 
@@ -63,9 +63,17 @@ set_var()
 	shift # past argument or value
 	done
 
+#make sure gradlew exists
 if [ ! -f ./gradlew ]; then
 	echo "Cannot find gradlew program"
 	exit
+fi
+
+if [ $PACKAGE == "unset" ]; then
+	echo "No package has been specified yet\nEnter the package name i.e com.example.androidapp"
+	read package
+	P="PACKAGE="$package
+	set_var $P
 fi
 make_activity_runnable $1
 ./gradlew assembleDebug
