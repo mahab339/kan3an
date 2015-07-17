@@ -15,7 +15,7 @@ For the sake of learning the powerful tool; shell scripting. I intend to add the
 * Support emulator, add option that launch the emulator instead of a physical device.
 * An option for the user to specify the launcher activity.
 * ~~Set the default launcher activity from the terminal.~~ <sub> finished on: Wed Jul  8 01:45:45 AST 2015 </sub>
-* Set the package name from terminal globally (one time). <sub> added on Wed Jul  8 01:46:50 AST 2015 </sub>
+* ~~Set the package name from terminal globally (one time). <sub> added on Wed Jul  8 01:46:50 AST 2015 </sub>~~,  <sub> Done on Fri Jul 17 16:38:52 AST 2015</sub>
 * Adding "launch without rebuilding" option.
 * Support options `--stacktrace` and `--info` to be used with gradlew.
 
