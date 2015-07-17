@@ -10,12 +10,22 @@ if it is found in the SDK folder, add it to the PATH variable. Otherwise install
 
 3. A physical device connected to the computer and set up for debugging.<br>
 
+###Usage
+At the first time, the script will ask for the package name:<br>
+~$ No package has been specified yet<br>
+~$ Enter the package name i.e com.example.androidapp<br>
+~$ 
+
+* To launch ActivityName to the physical device: `roya.sh ActivityName`
+* To change the package name used in the script to com.example.androidapp:<br> 
+`roya.sh --set PACKAGE=com.example.androidapp` or `roya.sh -s PACKAGE=com.example.androidapp`
+
 ###TODO
 For the sake of learning the powerful tool; shell scripting. I intend to add the following features to the script:
 * Support emulator, add option that launch the emulator instead of a physical device.
 * An option for the user to specify the launcher activity.
 * ~~Set the default launcher activity from the terminal.~~ <sub> finished on: Wed Jul  8 01:45:45 AST 2015 </sub>
-* ~~Set the package name from terminal globally (one time). <sub> added on Wed Jul  8 01:46:50 AST 2015 </sub>~~,  <sub> Done on Fri Jul 17 16:38:52 AST 2015</sub>
+* ~~Set the package name from terminal globally (one time).~~ <sub> added on Wed Jul  8 01:46:50 AST 2015 </sub>,  <sub> Done on Fri Jul 17 16:38:52 AST 2015</sub>
 * Adding "launch without rebuilding" option.
 * Support options `--stacktrace` and `--info` to be used with gradlew.
 
