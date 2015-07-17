@@ -36,7 +36,7 @@ set_var()
 {
 	VAR=${1/=*/}
 	VAL=${1/*=/}
-	sed -i 's/'^$VAR'=.*/'$1'/' royatst.sh
+	sed -i 's/'^$VAR'=.*/'$1'/' `basename "$0"`
 	echo $VAR "has been set to" $VAL "sccessfully..."
 	exit
 }
@@ -63,18 +63,28 @@ set_var()
 	shift # past argument or value
 	done
 
+
+#prompts the user to enter the main package name,
+#and use set_var function to set PACKAGE to the user input.
+read_package_name()
+{
+	printf "No package has been specified yet\nEnter the package name i.e com.example.androidapp\n"
+	read package
+	P="PACKAGE="$package
+	set_var $P
+}
+
 #make sure gradlew exists
 if [ ! -f ./gradlew ]; then
 	echo "Cannot find gradlew program"
 	exit
 fi
 
+#If PACKAGE=="unset", read package name
 if [ $PACKAGE == "unset" ]; then
-	echo "No package has been specified yet\nEnter the package name i.e com.example.androidapp"
-	read package
-	P="PACKAGE="$package
-	set_var $P
+	read_package_name
 fi
+
 make_activity_runnable $1
 ./gradlew assembleDebug
 invert_manifest_modification
