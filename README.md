@@ -1,5 +1,5 @@
 # roya
-A simple bash script to be used while developing Android apps to launch the application from the AndroidStudio project to a testing device.
+A simple bash script to be used while developing Android apps, to launch the application from the AndroidStudio project to a testing device.
 
 ###Requrements
 1. gradlw program<br>
@@ -11,15 +11,15 @@ if it is found in the SDK folder, add it to the PATH variable. Otherwise install
 3. A physical device connected to the computer and set up for debugging.<br>
 
 ###Usage
-Running the script for the first time, it will ask for the development package name:<br>
+If you run the script for the first time, it will ask for the development package name:<br>
 ~$ roya.sh
 ~$ No package has been specified yet<br>
 ~$ Enter the package name i.e com.example.androidapp<br>
 ~$ 
 
 * To launch ActivityName to the physical device: `roya.sh ActivityName`
-* To change the package name used in the script to com.example.androidapp:<br> 
-`roya.sh --set PACKAGE=com.example.androidapp` or `roya.sh -s PACKAGE=com.example.androidapp`
+* To change the package name used in the script to com.example1.androidapp:<br> 
+`roya.sh --set PACKAGE=com.example1.androidapp` or `roya.sh -s PACKAGE=com.example1.androidapp`
 
 ###TODO
 For the sake of learning the powerful tool; shell scripting. I intend to add the following features to the script:
