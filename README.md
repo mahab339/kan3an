@@ -11,7 +11,8 @@ if it is found in the SDK folder, add it to the PATH variable. Otherwise install
 3. A physical device connected to the computer and set up for debugging.<br>
 
 ###Usage
-At the first time, the script will ask for the package name:<br>
+Running the script for the first time, it will ask for the development package name:<br>
+~$ roya.sh
 ~$ No package has been specified yet<br>
 ~$ Enter the package name i.e com.example.androidapp<br>
 ~$ 
