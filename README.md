@@ -15,11 +15,13 @@ If you run the script for the first time, it will ask for the development packag
 ~$ roya.sh
 ~$ No package has been specified yet<br>
 ~$ Enter the package name i.e com.example.androidapp<br>
-~$ 
+~$
 
 * To launch ActivityName to the physical device: `roya.sh ActivityName`
-* To change the package name used in the script to com.example1.androidapp:<br> 
+* To change the package name used in the script to com.example1.androidapp:<br>
 `roya.sh --set PACKAGE=com.example1.androidapp` or `roya.sh -s PACKAGE=com.example1.androidapp`
+* To launch ActivityName activity without rebuilding the project:<br>
+`roya.sh -d ActivityName` or `roya.sh --no-rebuild ActivityName`
 
 ###TODO
 For the sake of learning the powerful tool; shell scripting. I intend to add the following features to the script:
@@ -27,7 +29,7 @@ For the sake of learning the powerful tool; shell scripting. I intend to add the
 * An option for the user to specify the launcher activity.
 * ~~Set the default launcher activity from the terminal.~~ <sub> finished on: Wed Jul  8 01:45:45 AST 2015 </sub>
 * ~~Set the package name from terminal globally (one time).~~ <sub> added on Wed Jul  8 01:46:50 AST 2015 </sub>,  <sub> Done on Fri Jul 17 16:38:52 AST 2015</sub>
-* Adding "launch without rebuilding" option.
+* ~~Adding "launch without rebuilding" option.~~ <sub> Done on Mon Jul 20 21:23:07 AST 2015</sub>
 * Support options `--stacktrace` and `--info` to be used with gradlew.
 
 Currently reading this book about bash and bash scripting: [Bash Guide for Beginners](http://tille.garrels.be/training/bash/). Which I found very helpful for understanding the basic concepts behind bash.

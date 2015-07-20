@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-PACKAGE="unset"
+PACKAGE=com.azhalha.androidapp
 
 make_activity_runnable()
 {
@@ -42,6 +42,12 @@ set_var()
 }
 
 
+run_without_rebuild()
+{
+	adb install -r ./app/build/outputs/apk/app-debug.apk
+	adb shell am start -n $PACKAGE/$PACKAGE.$1
+	exit
+}
 
 #seting options
 #options till now are:
@@ -56,6 +62,10 @@ set_var()
 	    shift # past argument
 	    ;;
 
+			-d|--no-rebuild) #the opposite of (b)uild is (d)uild
+			run_without_rebuild $2
+			shift
+			;;
 	    *)
 	            # unknown option
 	    ;;
