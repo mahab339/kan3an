@@ -12,9 +12,11 @@ if it is found in the SDK folder, add it to the PATH variable. Otherwise install
 
 ###Usage
 If you run the script for the first time, it will ask for the development package name:<br>
-~$ roya.sh
+~$ roya.sh<br>
 ~$ No package has been specified yet<br>
 ~$ Enter the package name i.e com.example.androidapp<br>
+~$ com.halv.androidapp<br>
+~$ PACKAGE has been set to com.halv.androidapp sccessfully...<br>
 ~$
 
 * To launch ActivityName to the physical device: `roya.sh ActivityName`
